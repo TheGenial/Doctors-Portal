@@ -1,0 +1,28 @@
+.row{
+    padding-top: 100px;
+}
+.row-element{
+    padding: 10px;
+}
+.row-element img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.row-element button{
+    color: white;
+    background-color: rgb(33, 94, 94);
+    margin-right: 10px;
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+}
+.row-element h3{
+    color: rgb(33, 94, 94);
+} 
+.row-element h4{
+    color: green;
+}
+.row-element p{
+    color: gray;
+}
