@@ -3,8 +3,8 @@ h1, h2, h3, h4, h5{
 }
 
 img{
-    height: 95%;
-    width: 95%;
+    max-height: 100%;
+    max-width: 100%;
     object-fit: contain;
 }
 .date-picker{
