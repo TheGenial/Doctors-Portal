@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
 import './GetAppointment.css';
-import image from '../../../src/Images/MaskGroup.png';
+import image2 from '../../../src/Images/MaskGroup 2.png';
 import fakeData from '../../FakeData/Index';
 import CartItem from '../CartItem/CartItem';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import {DateContext} from '../../App';
+import { DateContext } from '../../App';
 
 const GetAppointment = () => {
 
@@ -17,7 +17,7 @@ const GetAppointment = () => {
             <div className="text-center">
                 <h1 >Appointment</h1>
             </div>
-            
+
             <div className="row">
                 <div className="col-md-6 text-center">
                     <h5 className="headline" style={{ marginBottom: '20px' }}>Pick your Schedule</h5>
@@ -32,13 +32,15 @@ const GetAppointment = () => {
                     />
                 </div>
                 <div className="col-md-6">
-                    <img src={image} alt="" />
+                    <img className= "img-fluid" src={image2} alt="" />
                 </div>
             </div>
-            <div className="text-center">
-            <h4>Available Appointment are</h4>
+            <div className="row">
+                <div className="col-md-12 text-center">
+                    <h4>Available Appointment on {dateContext.toLocaleDateString()}</h4>
+                </div>
             </div>
-            <div className="row text-center">
+            <div className="row">
                 {
                     appointments.map(ad => <CartItem key={ad.id} appointments={ad}></CartItem>)
                 }

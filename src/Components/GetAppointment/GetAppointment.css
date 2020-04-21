@@ -2,11 +2,11 @@ h1, h2, h3, h4, h5{
     color: rgb(33, 94, 94);
 }
 
-img{
+/* img{
     max-height: 100%;
     max-width: 100%;
-    object-fit: contain;
-}
+    object-fit: cover;
+} */
 .date-picker{
     border-radius: 3px;
     border-color:black;

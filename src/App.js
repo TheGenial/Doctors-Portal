@@ -10,7 +10,7 @@ export const DateContext = createContext();
 
 function App() {
 
-  const [dateContext, setDateContext] = useState();
+  const [dateContext, setDateContext] = useState(new Date());
 
   return (
     <DateContext.Provider value={[dateContext, setDateContext]}>
