@@ -9,25 +9,15 @@ const UserForm = () => {
 
     const { id } = useParams();
     const [dateContext] = useContext(DateContext);
-    
-    const stringDate = new Date(dateContext);
-    const date = stringDate.substring(0,10);
-    console.log(date);
 
     const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = data => { console.log(data) }
-
-    const [appointmentDetails, setAppointmentDetails] = useState();
-
-    useEffect(() => {
-        const selectedData = (fakeData.filter(fd => fd.id == id));
-        setAppointmentDetails(selectedData);
-        console.log(appointmentDetails);
-      }, []);
+    const onSubmit = data => { 
+        console.log(data) 
+    }
 
     return (
-        <div className="container text-center">
-            <h3>Data</h3>
+        <div className="container">
+            <h3>{fakeData[id-1].problemType}</h3>
             <form className="form" onSubmit={handleSubmit(onSubmit)}>
                 < input name="name"
                     ref={register({ required: true })}
@@ -39,7 +29,7 @@ const UserForm = () => {
                     ref={register({ required: true })}
                     placeholder="Your Email"
                 />
-                {errors.email && <span className="error">Name is required</span>}
+                {errors.email && <span className="error">Email is required</span>}
 
                 < input name="mobile"
                     ref={register({ required: true })}
@@ -48,14 +38,15 @@ const UserForm = () => {
                 {errors.mobile && <span className="error">Mobile number is required</span>}
 
                 < input name="time" disabled
+                    placeholder= {fakeData[id].time}
                     ref={register({ required: true })}
-                    placeholder="Your Name"
-                    
+                    defaultValue = {fakeData[id-1].time}
                 />
                 
-                < input name="date" disabled
-                    ref={register({ required: true })}
-                    placeholder={JSON.stringify(dateContext)}
+                < input name="date" disabled 
+                    placeholder={dateContext.toLocaleDateString()}
+                    ref={register({})}
+                    defaultValue = {dateContext.toLocaleDateString()}
                 />
 
                 <input type="submit" />
