@@ -12,7 +12,22 @@ const UserForm = () => {
 
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = data => { 
-        console.log(data) 
+        console.log(data);
+        console.log(data.name);
+        console.log(data.time);
+        console.log(data.date);
+
+        fetch('https://intense-taiga-10508.herokuapp.com/addPatientInfo', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                alert("Hello " +data.name +" your appointment will take place at "+ data.time+" on "+data.date);
+            })
     }
 
     return (
@@ -51,6 +66,7 @@ const UserForm = () => {
 
                 <input type="submit" />
             </form>
+
         </div>
     );
 };
